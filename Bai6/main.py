@@ -1,3 +1,6 @@
 print("Nhap ten")
 name = input()
 print("Hello", name)
+print("Nhap tuoi")
+age = input()
+print("Tuoi cua ban la", age)
