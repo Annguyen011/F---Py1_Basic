@@ -1,5 +1,6 @@
 print("Nhap ten")
 name = input()
+name.upper()
 print("Hello", name)
 print("Nhap tuoi")
 age = input()
