@@ -2,9 +2,12 @@ import os
 
 chuongBatDau = int(input("Nhập bài bắt đầu: "))
 chuongKetThuc = int(input("Nhập bài kết thúc: "))
+chuong = "_C" +  str(input("Nhập số chương: "))
+path = os.path.dirname(os.path.abspath(__file__)) 
+path = os.path.join(path, chuong)
 
 for i in range(chuongBatDau, chuongKetThuc + 1):  
-    folder_name = f"Bai{i}"
+    folder_name = os.path.join(path, f"Bai{i}") 
     os.makedirs(folder_name, exist_ok=True)  # Tạo thư mục
 
     # Tạo file main.py bên trong thư mục với encoding UTF-8
