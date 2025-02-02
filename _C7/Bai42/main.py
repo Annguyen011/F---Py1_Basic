@@ -10,7 +10,6 @@ with open("data.txt", "w") as f:
         f.write(str(num) + "\n")
 
 with open("data.txt", "r") as f:
-    for line in f:
-        numsA.append(int(line))
+    numsA = (f.read().splitlines())
 numsA.sort()
 print(numsA)
