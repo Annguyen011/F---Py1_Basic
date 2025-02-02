@@ -12,6 +12,6 @@ Có nhiều mode để có thể đọc ghi file:
 """
 
 file = open("data.txt", "r", encoding="utf-8")
-
 data = file.read() # Đọc toàn bộ file
 print(data)
+file.close() # Đóng file
