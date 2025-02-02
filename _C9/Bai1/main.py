@@ -1,1 +1,0 @@
-# Đây là file main.py cho e:\Ai\DungLai-CoBan\_C9\Bai1
