@@ -3,24 +3,14 @@ import os
 
 def main():
     path = (os.path.dirname(os.path.abspath(__file__)))
-    MakeFile("data2.txt", MakeFolder("Text", path))
-    
-    total_video = int(input("Enter total video: "))
-    
-class Video:
-    def __init__(self, title, link):
-        self.title = title
-        self.link = link
-    
-    def PrintVideo(video):
-        return f"{video.title} - {video.link}"
-    
-    def PrintVideos(videos):
-        return "\n".join([Video.PrintVideo(video) for video in videos])
-    
-    def ReadVideos(self, videos):
-        return 
-    
+    file_name = input("Nhap ten file ")
+    if not file_name.endswith(".txt"):
+        file_name += ".txt"
+    try: 
+        MakeFile(file_name, MakeFolder("Text", path))
+    except Exception as e:
+        print(e)
+        return
     
 def MakeFolder(name, path):
     folder_path = os.path.join(path, name)
