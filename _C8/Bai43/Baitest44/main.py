@@ -1,30 +1,22 @@
 import os
 
+PATH_OF_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def main():
-    path = (os.path.dirname(os.path.abspath(__file__)))
-    file_name = input("Nhap ten file ")
-    if not file_name.endswith(".txt"):
-        file_name += ".txt"
-    try: 
-        MakeFile(file_name, MakeFolder("Text", path))
-    except Exception as e:
-        print(e)
-        return
-    
-def MakeFolder(name, path):
-    folder_path = os.path.join(path, name)
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path, exist_ok=True)  # Tạo thư mục
-    return folder_path
+    pass
 
 def MakeFile(name, path):
-    if type(path) != str:
-        print("Path is not a string")
-        return
-    
-    file_path = os.path.join(path, name)
-    with open(file_path, "w", encoding="utf-8") as file:
-        file.write("\n")
+    folderPath = os.path.join(path, name)
+    if not os.path.exists(folderPath):
+        os.makedirs(folderPath)
+    return folderPath
 
-main()
+def MakeFileWithContent(name, path, content=""):
+    folderPath = os.path.join(path, name)
+    if not os.path.exists(folderPath):
+        os.makedirs(folderPath)
+    with open(os.path.join(folderPath, name + ".txt"), "w") as file:
+        file.write(content)
+    return folderPath
+    
+    
