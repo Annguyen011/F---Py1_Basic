@@ -66,9 +66,5 @@ def print_videos(videos: list[Video]) -> None:
 
 def main() -> None:
     print(read_file("Videos"))
-    
-    # videos = read_videos()
-    # print_videos(videos)
-    # write_to_file("Videos", videos)
 
 main()
