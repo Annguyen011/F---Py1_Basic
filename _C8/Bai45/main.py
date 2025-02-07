@@ -71,5 +71,4 @@ def main() -> None:
     # print_videos(videos)
     # write_to_file("Videos", videos)
 
-if __name__ == "__main__":
-    main()
+main()
