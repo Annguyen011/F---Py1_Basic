@@ -17,7 +17,7 @@ def MakeFolder(nameFolder, path = ""):
     folderPath = None
     
     if(path == ""):
-        path = MakeFolder("Data", NAME_OF_FOLDER)
+        path = NAME_OF_FOLDER
     
     folderPath = os.path.join(path, nameFolder)
     
