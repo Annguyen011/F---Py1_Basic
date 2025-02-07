@@ -2,59 +2,74 @@ import os
 
 NAME_OF_FOLDER = os.path.dirname(os.path.abspath(__file__))
 
-def main():
-    MakeFile("test1")
-    # video = ReadVideos()
-    # PrintVideos(video)
-
 class Video:
-    def __init__(self, title, length):
+    def __init__(self, title: str, length: str):
         self.title = title
         self.length = length
 
-
-def MakeFolder(nameFolder, path = ""):
-    folderPath = None
+def write_to_file(filename: str, videos = "", path: str = "") -> None:
+    if not path:
+        path = make_folder("Data")
     
-    if(path == ""):
+    if not filename.endswith(".txt"):
+        filename += ".txt"
+    
+    file_path = os.path.join(path, filename)
+    
+    with open(file_path, "w") as file:
+        totalVideo = len(videos)
+        file.write(f"Total videos: {totalVideo}\n")
+        for video in videos:
+            file.write(f"{video.title} {video.length}\n")
+
+def read_file(filename: str, path: str = "") -> list[Video]:
+    if not path:
+        path = make_folder("Data")
+    
+    if not filename.endswith(".txt"):
+        filename += ".txt"
+    
+    file_path = os.path.join(path, filename)
+    
+    with open(file_path, "r") as file:
+        return file.read()
+
+def make_folder(folder_name: str, path: str = "") -> str:
+    if not path:
         path = NAME_OF_FOLDER
     
-    folderPath = os.path.join(path, nameFolder)
+    folder_path = os.path.join(path, folder_name)
     
-    if not os.path.exists(folderPath):
-        os.makedirs(folderPath)     
+    if not os.path.exists(folder_path):
+        os.makedirs(folder_path)
     
-    return folderPath
-    
-def MakeFile(nameFile, content = "", path = ""):
-    if(path == ""):
-        path = MakeFolder("Data")
-    
-    if(nameFile.endswith(".txt") == False):
-        nameFile += ".txt"
-    
-    filePath = os.path.join(path, nameFile)
-    
-    with open(filePath, "w") as file:
-        file.write(content)
-    
-def ReadVideo():
+    return folder_path
+
+def read_video() -> Video:
     title = input("Nhap title: ")
-    link = input("Nhap link: ")
-    return Video(title, link)
-    
-def ReadVideos():
+    length = input("Nhap link: ")
+    return Video(title, length)
+
+def read_videos() -> list[Video]:
     videos = []
-    totalVideos = int(input())
-    for i in range(totalVideos):
-        videos.append(ReadVideo())
+    total_videos = int(input("Nhap so luong video: "))
+    for _ in range(total_videos):
+        videos.append(read_video())
     return videos
-    
-def PrintVideo(video):
+
+def print_video(video: Video) -> None:
     print(video.title, video.length)
-    
-def PrintVideos(videos):
+
+def print_videos(videos: list[Video]) -> None:
     for video in videos:
-        PrintVideo(video)
+        print_video(video)
+
+def main() -> None:
+    print(read_file("Videos"))
     
-main()
+    # videos = read_videos()
+    # print_videos(videos)
+    # write_to_file("Videos", videos)
+
+if __name__ == "__main__":
+    main()
