@@ -1,7 +1,7 @@
 class Video:
 	def __init__(self, title, link):
 		self.title = None	
-		self.link = link2
+		self.link = link
 
 def read_video():
 	title = input("Enter title: ")
