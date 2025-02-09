@@ -16,8 +16,10 @@ while running:
     
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
-            print("Mouse Down")
-        
+            if event.button != 1:
+                break
+            print("Click")
+            
         if event.type == pygame.QUIT:
             running = False
             
