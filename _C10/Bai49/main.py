@@ -61,10 +61,28 @@ def read_videos_from_txt():
 			videos.append(video)
 	return videos
 
+def read_playlist():
+    pass
+
+def write_playlist_txt(playlist):
+    pass
+
+def read_playlist_from_txt():
+    pass
+
+def print_playlist(playlist):
+    pass
+
+
+
 def main():
-	videos = read_videos()
-	write_videos_txt(videos)	
-	videos = read_videos_from_txt()
-	print_videos(videos)
+	# videos = read_videos()
+	# write_videos_txt(videos)	
+	# videos = read_videos_from_txt()
+	# print_videos(videos)
+	playlist = read_playlist()
+	write_playlist_txt(playlist)
+	playlist = read_playlist_from_txt()
+	print_playlist(playlist)
 
 main()
