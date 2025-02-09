@@ -1,9 +1,12 @@
 import pygame
+import random
+
 
 pygame.init()
 GREEN = (0, 255, 0)
 RED = (255, 0, 0)
 BLUE = (0, 0, 255)
+background = BLUE
 clock = pygame.time.Clock() 
 running = True
 screen = pygame.display.set_mode((800, 600))
@@ -11,7 +14,7 @@ pygame.display.set_caption("Bird")
 
 while running:
     clock.tick(120)
-    # screen.fill(GREEN)
+    screen.fill(background)
     mousePos = pygame.mouse.get_pos()
     pygame.draw.rect(screen, RED, (100, 100, 100, 100))
     
@@ -27,7 +30,7 @@ while running:
                 break
             if mousePos[1] < 100:
                 break
-            screen.fill(BLUE)
+            background = random.randint(0, 225), random.randint(0, 225), random.randint(0, 225)
             
         if event.type == pygame.QUIT:
             running = False
