@@ -89,6 +89,16 @@ def print_playlist(playlist):
 	print("Playlist rating: " +  playlist.rating, end="")
 	print_videos(playlist.videos)
 
+
+def menu():
+    print("--------------------MENU--------------------")
+    print("1. Create playlist")
+    print("2. Print playlist")
+    print("3. Play video")
+    print("7. Exit")
+    print("--------------------------------------------")
+
+
 def main():
 	playlist = read_playlist()
 	write_playlist_txt(playlist)
