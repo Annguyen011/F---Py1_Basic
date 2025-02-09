@@ -62,10 +62,18 @@ def read_videos_from_txt():
 	return videos
 
 def read_playlist():
-    pass
-
+	name = input("Enter playlist name: ")
+	desc = input("Enter playlist description: ")
+	rating = int(input("Enter playlist rating: "))
+	videos = read_videos()
+	return PlayList(name, desc, rating, videos)
+ 
 def write_playlist_txt(playlist):
-    pass
+	with open("playlist.txt", "w") as file:
+		file.write(playlist.name + "\n")
+		file.write(playlist.desc + "\n")
+		file.write(str(playlist.rating) + "\n")
+		write_videos_txt(playlist.videos)
 
 def read_playlist_from_txt():
     pass
